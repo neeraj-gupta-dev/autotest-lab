@@ -13,7 +13,7 @@
 | Service       | URL                                              |
 |---------------|--------------------------------------------------|
 | 🌐 Frontend   | [https://autotest-lab.vercel.app](https://autotest-lab.vercel.app) |
-| ⚙️ Backend API| `https://autotestlab-api.onrender.com`           |
+| ⚙️ Backend API| [https://autotestlab-api.onrender.com](https://autotestlab-api.onrender.com)           |
 
 ---
 
@@ -59,10 +59,14 @@
 
 ## 📸 Screenshots
 
-*(Replace this section with real screenshots of your application)*
-- Add Login Page Screenshot
-- Add Product Catalog Screenshot
-- Add Playground Screenshot
+**Login Page**
+![Login Screen](./assets/login-screen.png)
+
+**Product Catalog**
+![Product Catalog](./assets/product-catalog.png)
+
+**Playground**
+![Playground](./assets/playground.png)
 
 ---
 
