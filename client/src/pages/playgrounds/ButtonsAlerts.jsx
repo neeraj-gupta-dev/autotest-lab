@@ -47,9 +47,9 @@ const ButtonsAlerts = () => {
                     <button
                         id="alertBtn"
                         onClick={triggerAlert}
-                        className="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
+                        className="btn btn-primary w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
                     >
-                        Trigger Alert
+                        Show Alert
                     </button>
                     <div className="mt-4 h-10 flex items-center justify-center">
                         <span className="text-xs text-gray-400 italic">No return value</span>
@@ -66,9 +66,9 @@ const ButtonsAlerts = () => {
                     <button
                         id="confirmBtn"
                         onClick={triggerConfirm}
-                        className="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
+                        className="btn btn-secondary w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
                     >
-                        Trigger Confirm
+                        Show Confirm
                     </button>
                     <div className="mt-4 h-10 flex items-center justify-center w-full">
                         {confirmResult ? (
@@ -91,9 +91,9 @@ const ButtonsAlerts = () => {
                     <button
                         id="promptBtn"
                         onClick={triggerPrompt}
-                        className="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
+                        className="btn btn-danger w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm"
                     >
-                        Trigger Prompt
+                        Show Prompt
                     </button>
                     <div className="mt-4 h-10 flex items-center justify-center w-full">
                         {promptResult ? (

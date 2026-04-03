@@ -50,22 +50,29 @@ const Search = () => {
             </div>
 
             <div className="bg-white border text-left border-gray-200 rounded-xl shadow-sm p-8">
-                <form onSubmit={handleSearch} className="flex gap-4 mb-8">
-                    <input
-                        id="searchBox"
-                        type="text"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        className="flex-1 px-5 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-shadow text-lg"
-                        placeholder="Search for 'Testing' or 'Alice'..."
-                    />
-                    <button
-                        id="searchBtn"
-                        type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-10 rounded-lg shadow-sm transition-transform active:scale-95"
-                    >
-                        Search Record
-                    </button>
+                <form id="searchForm" onSubmit={handleSearch} className="form-container mb-8">
+                    <div className="form-group flex flex-col sm:flex-row gap-4 items-end">
+                        <div className="flex-1 w-full">
+                            <label htmlFor="searchBox" className="form-label block text-sm font-medium text-gray-700 mb-1">Search Database</label>
+                            <input
+                                id="searchBox"
+                                name="searchQuery"
+                                data-testid="search-input"
+                                type="text"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                className="input-field w-full px-5 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-shadow text-lg"
+                                placeholder="Search for 'Testing' or 'Alice'..."
+                            />
+                        </div>
+                        <button
+                            id="searchBtn"
+                            type="submit"
+                            className="btn btn-primary w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-10 rounded-lg shadow-sm transition-transform active:scale-95"
+                        >
+                            Search Record
+                        </button>
+                    </div>
                 </form>
 
                 {hasSearched && (
@@ -80,9 +87,9 @@ const Search = () => {
                         </div>
                         
                         {results.length > 0 ? (
-                            <ul id="searchResultsList" className="divide-y divide-gray-100">
+                            <ul id="searchResultsList" className="results-list divide-y divide-gray-100">
                                 {results.map((item) => (
-                                    <li key={item.id} className="p-5 hover:bg-slate-50 transition-colors">
+                                    <li key={item.id} className="result-item p-5 hover:bg-slate-50 transition-colors">
                                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                                             <div>
                                                 <h3 className="text-lg font-black text-gray-900 tracking-tight">{item.title}</h3>

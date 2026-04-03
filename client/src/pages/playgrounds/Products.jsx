@@ -30,9 +30,10 @@ const Products = () => {
         setView('details');
     };
 
-    const addToCart = () => {
-        if (selectedProduct) {
-            setCart([...cart, selectedProduct]);
+    const addToCart = (product) => {
+        const item = product && product._id ? product : selectedProduct;
+        if (item) {
+            setCart([...cart, item]);
             setView('cart'); // Simulate auto-redirecting to cart for quick testing
         }
     };
@@ -91,16 +92,22 @@ const Products = () => {
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {products.map(p => (
-                                <div key={p._id} className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md hover:border-blue-200 transition-all group">
+                                <div key={p._id} className="product-card border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md hover:border-blue-200 transition-all group" data-testid="product-card">
                                     <img src={p.image} alt={p.name} className="w-full h-48 object-cover border-b border-gray-100 group-hover:opacity-95" />
                                     <div className="p-5">
-                                        <h3 className="font-bold text-gray-900 text-lg mb-1">{p.name}</h3>
-                                        <p className="text-blue-600 font-bold mb-4 tracking-tight">${p.price}</p>
+                                        <h3 className="product-title font-bold text-gray-900 text-lg mb-1">{p.name}</h3>
+                                        <p className="product-price text-blue-600 font-bold mb-4 tracking-tight">${p.price}</p>
                                         <button 
                                             onClick={() => viewDetails(p)}
-                                            className="w-full text-sm font-bold bg-slate-50 text-slate-700 border border-slate-200 py-2.5 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                                            className="w-full text-sm font-bold bg-slate-50 text-slate-700 border border-slate-200 py-2.5 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors mb-2"
                                         >
                                             View Source
+                                        </button>
+                                        <button 
+                                            onClick={() => addToCart(p)}
+                                            className="btn btn-primary w-full text-sm font-bold bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition-colors"
+                                        >
+                                            Add to Cart
                                         </button>
                                     </div>
                                 </div>
@@ -116,8 +123,8 @@ const Products = () => {
                     <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full md:w-1/3 object-cover rounded-lg border border-gray-100 shadow-sm" />
                     <div className="flex-1">
                         <div className="flex items-start justify-between">
-                            <h2 id="product-name" className="text-3xl font-black text-gray-900 mb-2 tracking-tight">{selectedProduct.name}</h2>
-                            <p className="text-3xl text-blue-600 font-black tracking-tighter">${selectedProduct.price}</p>
+                            <h2 id="product-name" className="product-title text-3xl font-black text-gray-900 mb-2 tracking-tight">{selectedProduct.name}</h2>
+                            <p className="product-price text-3xl text-blue-600 font-black tracking-tighter">${selectedProduct.price}</p>
                         </div>
                         
                         <span className="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-widest mt-1 mb-6 border border-emerald-200">
@@ -128,10 +135,10 @@ const Products = () => {
                         
                         <button 
                             id="addToCart"
-                            onClick={addToCart}
-                            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-lg shadow-sm transition-transform active:scale-95"
+                            onClick={() => addToCart(selectedProduct)}
+                            className="btn btn-primary w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-lg shadow-sm transition-transform active:scale-95"
                         >
-                            Add To Cart Pipeline
+                            Add to Cart
                         </button>
                     </div>
                 </div>
@@ -154,11 +161,11 @@ const Products = () => {
                                         <div className="flex items-center gap-4">
                                             <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg border border-gray-200" />
                                             <div>
-                                                <span className="font-bold text-gray-900 block">{item.name}</span>
+                                                <span className="product-title font-bold text-gray-900 block">{item.name}</span>
                                                 <span className="text-sm font-medium text-gray-500">Qty: 1</span>
                                             </div>
                                         </div>
-                                        <span className="font-black text-gray-900">${item.price}</span>
+                                        <span className="product-price font-black text-gray-900">${item.price}</span>
                                     </li>
                                 ))}
                             </ul>

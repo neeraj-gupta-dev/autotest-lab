@@ -48,33 +48,37 @@ const Login = () => {
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+                <form id="loginForm" data-testid="login-form" onSubmit={handleSubmit} className="form-container space-y-6">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
                             Email Address
                         </label>
                         <input
                             id="email"
+                            name="email"
+                            data-testid="login-email-input"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="student@example.com"
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
                             Password
                         </label>
                         <input
                             id="password"
+                            name="password"
+                            data-testid="login-password-input"
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="••••••••"
                         />
                     </div>
@@ -83,7 +87,7 @@ const Login = () => {
                         id="loginBtn"
                         type="submit"
                         disabled={isSubmitting}
-                        className={`w-full py-2.5 px-4 rounded-lg text-white font-medium transition flex justify-center items-center ${
+                        className={`btn btn-primary w-full py-2.5 px-4 rounded-lg text-white font-medium transition flex justify-center items-center ${
                             isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
                         }`}
                     >

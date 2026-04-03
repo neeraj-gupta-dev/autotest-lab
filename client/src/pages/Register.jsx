@@ -50,65 +50,73 @@ const Register = () => {
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
+                <form id="registerForm" data-testid="register-form" onSubmit={handleSubmit} className="form-container space-y-4">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
                             Full Name
                         </label>
                         <input
                             id="name"
+                            name="name"
+                            data-testid="register-name-input"
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="Jane Student"
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
                             Email Address
                         </label>
                         <input
                             id="email"
+                            name="email"
+                            data-testid="register-email-input"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="student@example.com"
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
                             Password
                         </label>
                         <input
                             id="password"
+                            name="password"
+                            data-testid="register-password-input"
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             minLength={6}
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="••••••••"
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="confirmPassword">
+                    <div className="form-group">
+                        <label className="form-label block text-sm font-medium text-gray-700 mb-1" htmlFor="confirmPassword">
                             Confirm Password
                         </label>
                         <input
                             id="confirmPassword"
+                            name="confirmPassword"
+                            data-testid="register-confirmPassword-input"
                             type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                             minLength={6}
-                            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                            className="input-field w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                             placeholder="••••••••"
                         />
                     </div>
@@ -118,7 +126,7 @@ const Register = () => {
                             id="registerBtn"
                             type="submit"
                             disabled={isSubmitting}
-                            className={`w-full py-2.5 px-4 rounded-lg text-white font-medium transition flex justify-center items-center ${
+                            className={`btn btn-primary w-full py-2.5 px-4 rounded-lg text-white font-medium transition flex justify-center items-center ${
                                 isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
                             }`}
                         >

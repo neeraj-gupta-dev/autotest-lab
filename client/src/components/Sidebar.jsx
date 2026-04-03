@@ -4,13 +4,13 @@ const Sidebar = () => {
     const location = useLocation();
 
     const links = [
-        { path: '/dashboard', label: 'Overview', id: 'nav-dashboard' },
-        { path: '/playgrounds/login', label: 'Login Model', id: 'nav-login-practice' },
-        { path: '/playgrounds/register', label: 'Registration Model', id: 'nav-register-practice' },
-        { path: '/playgrounds/forms', label: 'Form Controls', id: 'nav-forms' },
-        { path: '/playgrounds/alerts', label: 'Native Alerts', id: 'nav-alerts' },
-        { path: '/playgrounds/products', label: 'E-commerce API', id: 'nav-products' },
-        { path: '/playgrounds/search', label: 'Live Search', id: 'nav-search' },
+        { path: '/dashboard', label: 'Dashboard', id: 'nav-dashboard' },
+        { path: '/playgrounds/login', label: 'Login Playground', id: 'nav-login-practice' },
+        { path: '/playgrounds/register', label: 'Registration Playground', id: 'nav-register-practice' },
+        { path: '/playgrounds/forms', label: 'Form Playground', id: 'nav-forms' },
+        { path: '/playgrounds/alerts', label: 'Alerts Playground', id: 'nav-alerts' },
+        { path: '/playgrounds/products', label: 'Products', id: 'nav-products' },
+        { path: '/playgrounds/search', label: 'Search', id: 'nav-search' },
     ];
 
     return (
