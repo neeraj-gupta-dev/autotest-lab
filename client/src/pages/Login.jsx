@@ -14,10 +14,16 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        if (isSubmitting) return; // Prevent multiple clicks
+
         setErrorMsg('');
         setIsSubmitting(true);
 
-        const result = await login(email, password);
+        const loginRequest = login(email, password);
+        const minDelay = new Promise(res => setTimeout(res, 1000));
+        
+        const [result] = await Promise.all([loginRequest, minDelay]);
         
         if (result.success) {
             // Immediate redirect to dashboard upon successful authentication
